@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title%}Madlibs{% endblock %}</title>
+
+{% block content %}
+    <h1>Madlibs</h1>
+    <!-- when click submit on the form, call the '/story' route in app.py -->
+    <form action="/story">
+      <!-- loop over the list 'prompts' and for each prompt in 'prompts', create a label with the value of 'prompt' as the label and create an input with 'name' equal to the value of 'prompt'.  -->
+      <!-- ('prompts' is equal to story.prompts - a list of words passed in when create an instance of Story in stories.py file, i.e. story = Story(['place', 'noun', 'verb', 'adjective', 'plural_noun'"]), prompts= story.prompts= ['place', 'noun', 'verb', 'adjective', 'plural_noun']) -->
+      {% for prompt in prompts %}
+        <label for="{{prompt}}">{{prompt}}:</label>
+        <input type="text" name="{{prompt}}" /><br /><br />
+      {% endfor %}
+      <button>Submit</button>
+    </form>
+{% endblock  %}
